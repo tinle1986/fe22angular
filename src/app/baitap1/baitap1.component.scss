@@ -1,0 +1,34 @@
+@mixin content($bg, $width) {
+  background-color: $bg;
+  width: $width;
+  padding: 50px 0;
+  text-align: center;
+  color: white;
+}
+
+@mixin head_bar($bg) {
+  display: block;
+  background-color: $bg;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.header {
+  @include head_bar(red);
+}
+
+.contents {
+  display: flex;
+  .content {
+    @include content(green, 70%);
+  }
+
+  .sidebar {
+    @include content(hotpink, 30%);
+  }
+}
+
+.footer {
+  @include head_bar(purple);
+}

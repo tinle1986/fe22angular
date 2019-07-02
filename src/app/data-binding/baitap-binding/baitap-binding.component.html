@@ -1,0 +1,11 @@
+<h1>Register form</h1>
+<label for="">Email:</label> <br>
+<input type="text" [value]="email" [(ngModel)]="email"> <br>
+<label for="">FullName:</label> <br>
+<input type="text" [value]="name" #ten>
+<button class="btn btn-primary" (click)="eventBinding(ten.value)">Submit</button>
+
+<br>
+<br>
+<div>Email: {{email}}</div>
+<div>FullName: {{name}}</div>

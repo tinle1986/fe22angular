@@ -1,0 +1,6 @@
+<!-- Interpolation -->
+<div>{{name}}</div>
+
+<input type="text" [value]="name" #thamSo>
+
+<button class="btn btn-success" (click)="eventBinding(thamSo.value)">Event Binding</button>

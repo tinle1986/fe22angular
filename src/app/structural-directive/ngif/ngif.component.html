@@ -1,0 +1,13 @@
+<h3 style="color:red">*ngIf</h3>
+<div *ngIf="status">Cybersoft</div>
+<button class="btn btn-success" (click)="hidden()">hidden</button>
+<hr>
+<div *ngIf="statusLogin; else noiDungElse">
+	<button class="btn btn-danger" (click)="dangXuat()">Đăng xuất</button>
+	<h2>Xin chào</h2>
+</div>
+
+<ng-template #noiDungElse>
+	<button class="btn btn-success" (click)="dangNhap()">Đăng nhập</button>
+	<h3>Vui lòng đăng nhập</h3>
+</ng-template>

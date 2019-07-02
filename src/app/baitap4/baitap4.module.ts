@@ -6,9 +6,10 @@ import { Baitap4CarouselComponent } from './baitap4-carousel/baitap4-carousel.co
 import { Baitap4BestSmartphoneComponent } from './baitap4-best-smartphone/baitap4-best-smartphone.component';
 import { Baitap4BestLaptopComponent } from './baitap4-best-laptop/baitap4-best-laptop.component';
 import { Baitap4PromotionComponent } from './baitap4-promotion/baitap4-promotion.component';
+import { Baitap4BestItemComponent } from './baitap4-best-item/baitap4-best-item.component';
 
 @NgModule({
-  declarations: [Baitap4Component, Baitap4HeaderComponent, Baitap4CarouselComponent, Baitap4BestSmartphoneComponent, Baitap4BestLaptopComponent, Baitap4PromotionComponent],
+  declarations: [Baitap4Component, Baitap4HeaderComponent, Baitap4CarouselComponent, Baitap4BestSmartphoneComponent, Baitap4BestLaptopComponent, Baitap4PromotionComponent, Baitap4BestItemComponent],
   exports: [Baitap4Component],
   imports: [
     CommonModule

@@ -15,6 +15,11 @@ export class BaitapNgifComponent implements OnInit {
 
   ngOnInit() {
     // loi localstorage -> neu co thong tin, giu nguyen trang thai Login
+    if(localStorage.getItem("user")!=null) {
+      let user = JSON.parse(localStorage.getItem("user"));
+      this.statusLogin = true;
+      this.username = user;
+    }
     console.log("ngOnInit");
   }
 

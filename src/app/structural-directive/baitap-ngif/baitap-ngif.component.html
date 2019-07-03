@@ -8,17 +8,14 @@
     <li class="nav-item">
       <a class="nav-link">Link 2</a>
     </li>
-    <li
-      class="nav-item"
-      data-toggle="modal"
-      data-target="#myModal"
-      *ngIf="!statusLogin, else LoginSuccess"
-    >
+    <!-- kiem tra trang thai cua loginStatus, mac dinh la false, neu la false (!statusLogin la dieu kien true) thi van la Login, nguoc lai la dang nhap thanh cong -->
+    <li class="nav-item" data-toggle="modal" data-target="#myModal" *ngIf="!statusLogin, else LoginSuccess">
       <a class="nav-link">Login</a>
     </li>
   </ul>
 </nav>
 
+<!-- form mau dc su dung khi dang nhap thanh cong -->
 <ng-template #LoginSuccess>
   <li class="nav-item">
     <a class="nav-link">Xin chào {{username}}!</a>
@@ -45,21 +42,13 @@
         </div>
         <div class="form-group">
           <label>Password:</label>
-          <input
-            type="password"
-            class="form-control"
-            #matkhau
-          />
+          <input type="password" class="form-control" #matkhau />
         </div>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-success"
-          (click)="dangNhap(ten.value, matkhau.value)"
-        >
+        <button type="button" class="btn btn-success" (click)="dangNhap(ten.value, matkhau.value)">
           Login
         </button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">

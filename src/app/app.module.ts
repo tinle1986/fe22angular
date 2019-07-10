@@ -19,6 +19,11 @@ import { Baitap3Module } from "./baitap3/baitap3.module";
 import { Baitap4Module } from "./baitap4/baitap4.module";
 import { DataBindingModule } from './data-binding/data-binding.module';
 import { StructuralDirectiveModule } from './structural-directive/structural-directive.module';
+import { AttributeDirectiveModule } from './attribute-directive/attribute-directive.module';
+import { NgContentComponent } from './ng-content/ng-content.component';
+import { ItemCardComponent } from './ng-content/item-card/item-card.component';
+import { InteractionModule } from './interaction/interaction.module';
+import { DatVeBusModule } from './dat-ve-bus/dat-ve-bus.module';
 
 
 @NgModule({
@@ -37,9 +42,11 @@ import { StructuralDirectiveModule } from './structural-directive/structural-dir
     Baitap2ItemCardComponent,
     Baitap2FooterComponent,
     Baitap2ListComponent,
+    NgContentComponent,
+    ItemCardComponent,
   ],
   imports: [
-    BrowserModule, Baitap3Module, Baitap4Module, DataBindingModule,StructuralDirectiveModule
+    BrowserModule, Baitap3Module, Baitap4Module, DataBindingModule,StructuralDirectiveModule,AttributeDirectiveModule, InteractionModule, DatVeBusModule
   ],
   providers: [],
   bootstrap: [AppComponent]

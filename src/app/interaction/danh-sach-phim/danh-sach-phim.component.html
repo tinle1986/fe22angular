@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3" *ngFor="let item of danhSachPhim">
+      <!--Begin item -->
+      <app-item-phim [phim]="item" (eventLike)="like($event)"></app-item-phim>
+      <!-- End item -->
+    </div>
+	</div>
+	<button class="btn btn-success" (click)="viewChildren()">ViewChildren</button>
+	<div class="row">
+		<div class="col-sm-12">
+			<p *ngFor="let item of danhSachLike">{{item.tenPhim}}: {{item.soLike}}</p>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,45 @@
+<div class="container">
+  <div id="formthongtin">
+    <label>Mã SP</label><br />
+    <input type="text" #ma /><br />
+
+    <label>Tên SP</label><br />
+    <input type="text" #ten /><br />
+
+    <label>Giá SP</label><br />
+    <input type="text" #gia /><br />
+
+    <button
+      class="btn btn-primary"
+      style="margin-top: 1rem"
+      (click)="eventBinding(ma.value, ten.value, gia.value)"
+    >
+      Thêm sản phẩm
+    </button>
+  </div>
+
+  <div id="bangthongtin">
+    <table style="width:100%">
+      <tr>
+        <th>STT</th>
+        <th>Mã</th>
+        <th>Tên</th>
+        <th>Giá</th>
+      </tr>
+
+      <tbody>
+        <ng-container *ngIf="mangSp">
+          <tr
+            *ngFor="let item of mangSp; let stt = index"
+            [ngClass]="{ bgColor: (stt + 1) % 2 == 0 }"
+          >
+            <td>{{ stt + 1 }}</td>
+            <td>{{ item.masp }}</td>
+            <td>{{ item.tensp }}</td>
+            <td>{{ item.giasp }}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

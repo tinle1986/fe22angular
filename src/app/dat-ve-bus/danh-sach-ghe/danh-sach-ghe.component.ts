@@ -105,6 +105,8 @@ export class DanhSachGheComponent implements OnInit {
         this.tongSoTien = this.tongSoTien - item.ghe.Gia;
       }
     });
+    this.gheDaBookCom.tongGhe = this.tongSoGhe;
+    this.gheDaBookCom.tongTien = this.tongSoTien;
     console.log(this.itemGheComList);
     console.log(this.mangGhe);
     console.log(this.tongSoGhe);

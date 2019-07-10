@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
+import { ItemGheComponent } from "../item-ghe/item-ghe.component"
 
 @Component({
   selector: "app-danh-sach-ghe",
@@ -6,6 +7,9 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./danh-sach-ghe.component.scss"]
 })
 export class DanhSachGheComponent implements OnInit {
+
+  @ViewChildren (ItemGheComponent) itemGheComList:QueryList<ItemGheComponent>;
+
   mangGhe: any = [
     { SoGhe: 1, TenGhe: "số 1", Gia: 100, TrangThai: false },
     { SoGhe: 2, TenGhe: "số 2", Gia: 100, TrangThai: false },
@@ -14,7 +18,7 @@ export class DanhSachGheComponent implements OnInit {
     { SoGhe: 5, TenGhe: "số 5", Gia: 100, TrangThai: false },
     { SoGhe: 6, TenGhe: "số 6", Gia: 100, TrangThai: false },
     { SoGhe: 7, TenGhe: "số 7", Gia: 100, TrangThai: false },
-    { SoGhe: 8, TenGhe: "số 7", Gia: 100, TrangThai: false },
+    { SoGhe: 8, TenGhe: "số 8", Gia: 100, TrangThai: false },
     { SoGhe: 9, TenGhe: "số 9", Gia: 100, TrangThai: false },
     { SoGhe: 10, TenGhe: "số 10", Gia: 100, TrangThai: false },
     { SoGhe: 11, TenGhe: "số 11", Gia: 100, TrangThai: false },
@@ -47,7 +51,9 @@ export class DanhSachGheComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.mangGhe);
+  }
 
   book(soGhe) {
     console.log(soGhe);
@@ -57,6 +63,24 @@ export class DanhSachGheComponent implements OnInit {
         console.log(item.TrangThai);
       }
     })
+    console.log(this.mangGhe);
+  }
+
+  cancel(stt) {
+    console.log(stt);
+    /* this.mangGhe.map(item => {
+      if(item.SoGhe === stt) {
+        item.TrangThai = !item.TrangThai;
+        console.log(item.TrangThai)
+      }
+    }) */
+    this.itemGheComList.map(item => {
+      if (item.ghe.SoGhe === stt) {
+        item.ghe.TrangThai = !item.ghe.TrangThai;
+        console.log(item.ghe.TrangThai);
+      }
+    })
+    console.log(this.itemGheComList);
     console.log(this.mangGhe);
   }
 }

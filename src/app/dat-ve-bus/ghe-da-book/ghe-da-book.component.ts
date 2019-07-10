@@ -1,24 +1,29 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
-  selector: 'app-ghe-da-book',
-  templateUrl: './ghe-da-book.component.html',
-  styleUrls: ['./ghe-da-book.component.scss']
+  selector: "app-ghe-da-book",
+  templateUrl: "./ghe-da-book.component.html",
+  styleUrls: ["./ghe-da-book.component.scss"]
 })
 export class GheDaBookComponent implements OnInit {
+  @Input() gheBook: any;
+  @Output() eventCancel = new EventEmitter();
 
-  gheDaBook: any = [];
-  @Input() gheBook:any;
-
-  constructor() { }
-
-  ngOnInit() {
-    this.gheBook.map(item => {
-      if(item.TrangThai) {
-        this.gheDaBook.push(item);
-      }
-    })
-    console.log(this.gheDaBook);
+  constructor() {
+    
   }
 
+  ngOnInit() {
+    /* this.gheBook.map(item => {
+      if (item.TrangThai === true) {
+        this.gheDaBook.push(item);
+      }
+    });
+    console.log(this.gheDaBook); */
+  }
+
+  huyGhe(stt) {
+    console.log(stt);
+    this.eventCancel.emit(stt);
+  }
 }

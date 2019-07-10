@@ -7,7 +7,7 @@
       </ng-container>
     </div>
     <div class="col-sm-6">
-      <app-ghe-da-book [gheBook]="mangGhe"></app-ghe-da-book>
+      <app-ghe-da-book [gheBook]="mangGhe" (eventCancel)=cancel($event)></app-ghe-da-book>
     </div>
   </div>
 </div>

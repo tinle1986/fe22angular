@@ -18,7 +18,9 @@ export class ItemGheComponent implements OnInit {
   }
 
   datGhe() {
+    // this.ghe.TrangThai = this.trangThaiChon;
     this.trangThaiChon = !this.trangThaiChon;
+    
     console.log(this.ghe.SoGhe);
     this.eventBook.emit(this.ghe.SoGhe);
   }

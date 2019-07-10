@@ -1,6 +1,11 @@
-<ng-container *ngFor="let ghe of gheDaBook; let stt = index">
-  <div *ngIf="ghe.TrangThai">
-		Ghế: {{ stt + 1 }} đã được book giá {{ ghe.Gia }}
+<ng-container *ngFor="let ghe of gheBook; let stt = index">
+  <div *ngIf="ghe.TrangThai" class="row">
+		<div class="col-md-10 mt-2 text-right">
+				Ghế {{ stt + 1 }} đã được book giá {{ ghe.Gia }} đồng
+		</div>
+		<div class="col-md-2 mt-2">
+				<button class="btn btn-danger" (click)="huyGhe(ghe.SoGhe)">Hủy</button>
+		</div>
 	</div>
 </ng-container>
 <!-- <div>test ghe da book</div> -->

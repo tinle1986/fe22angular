@@ -6,12 +6,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
   styleUrls: ["./ghe-da-book.component.scss"]
 })
 export class GheDaBookComponent implements OnInit {
+
+  tongGhe: number = 0;
+  tongTien: number = 0;
+
   @Input() gheBook: any;
   @Output() eventCancel = new EventEmitter();
 
-  constructor() {
-    
-  }
+  constructor() {}
 
   ngOnInit() {
     /* this.gheBook.map(item => {

@@ -1,5 +1,12 @@
-import { Component, OnInit, ViewChildren, QueryList } from "@angular/core";
-import { ItemGheComponent } from "../item-ghe/item-ghe.component"
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ViewChildren,
+  QueryList
+} from "@angular/core";
+import { GheDaBookComponent } from "../ghe-da-book/ghe-da-book.component";
+import { ItemGheComponent } from "../item-ghe/item-ghe.component";
 
 @Component({
   selector: "app-danh-sach-ghe",
@@ -7,8 +14,13 @@ import { ItemGheComponent } from "../item-ghe/item-ghe.component"
   styleUrls: ["./danh-sach-ghe.component.scss"]
 })
 export class DanhSachGheComponent implements OnInit {
+  tongSoGhe: number = 0;
+  tongSoTien: number = 0;
 
-  @ViewChildren (ItemGheComponent) itemGheComList:QueryList<ItemGheComponent>;
+  @ViewChild(GheDaBookComponent, { static: false })
+  gheDaBookCom: GheDaBookComponent;
+
+  @ViewChildren(ItemGheComponent) itemGheComList: QueryList<ItemGheComponent>;
 
   mangGhe: any = [
     { SoGhe: 1, TenGhe: "số 1", Gia: 100, TrangThai: false },
@@ -60,10 +72,21 @@ export class DanhSachGheComponent implements OnInit {
     this.mangGhe.map(item => {
       if (item.SoGhe === soGhe) {
         item.TrangThai = !item.TrangThai;
+        if (item.TrangThai === true) {
+          this.tongSoGhe++;
+          this.tongSoTien = this.tongSoTien + item.Gia;
+        } else {
+          this.tongSoGhe--;
+          this.tongSoTien = this.tongSoTien - item.Gia;
+        }
         console.log(item.TrangThai);
       }
-    })
+    });
+    this.gheDaBookCom.tongGhe = this.tongSoGhe;
+    this.gheDaBookCom.tongTien = this.tongSoTien;
     console.log(this.mangGhe);
+    console.log(this.tongSoGhe);
+    console.log(this.tongSoTien);
   }
 
   cancel(stt) {
@@ -78,9 +101,13 @@ export class DanhSachGheComponent implements OnInit {
       if (item.ghe.SoGhe === stt) {
         item.ghe.TrangThai = !item.ghe.TrangThai;
         console.log(item.ghe.TrangThai);
+        this.tongSoGhe--;
+        this.tongSoTien = this.tongSoTien - item.ghe.Gia;
       }
-    })
+    });
     console.log(this.itemGheComList);
     console.log(this.mangGhe);
+    console.log(this.tongSoGhe);
+    console.log(this.tongSoTien);
   }
 }

@@ -1,12 +1,13 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-3">
+      <div class="driver">Tài xế</div>
       <ng-container *ngFor="let item of mangGhe; let stt = index">
         <app-item-ghe [ghe]="item" (eventBook)="book($event)"></app-item-ghe>
         <br *ngIf="(stt + 1) % 4 === 0" />
       </ng-container>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-9">
       <app-ghe-da-book [gheBook]="mangGhe" (eventCancel)=cancel($event)></app-ghe-da-book>
     </div>
   </div>
